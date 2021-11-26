@@ -49,6 +49,7 @@ function App() {
       <Titulo color="dodgerblue" subtitulo="Estos usan el gancho de useState">
         Con Componente de Funcción
       </Titulo>
+
       <div className="person-list">
         {personas.map((p, idx) => (
           <Personcard2 key={idx} {...p} />
