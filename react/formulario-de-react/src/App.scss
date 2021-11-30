@@ -22,7 +22,7 @@ form {
   button {
     font-size: 1.5rem;
     color: white;
-    background: grey;
+    background: mediumseagreen;
     border: none;
     padding: 1rem;
   }
@@ -51,4 +51,12 @@ form {
   margin-top: 0.2rem;
   display: flex;
   align-items: center;
+}
+
+code {
+  margin: auto;
+  padding: 64px;
+  background-color: black;
+  color: white;
+  display: block;
 }

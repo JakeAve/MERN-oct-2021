@@ -1,10 +1,10 @@
 import "./App.scss";
-import Formulario from "./Formulario/Formulario";
+import Padredeformulario from "./PadreDeFormulario/PadreDeFormulario";
 
 function App() {
   return (
     <div>
-      <Formulario />
+      <Padredeformulario />
     </div>
   );
 }

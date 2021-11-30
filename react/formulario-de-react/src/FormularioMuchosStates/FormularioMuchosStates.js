@@ -3,8 +3,8 @@ import React, { useState } from "react";
 const Formulario = () => {
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
+  const [correo, setCorreo] = useState("");
 
-  console.table({ nombre, apellido });
   return (
     <form>
       <div className="input-wrapper">
@@ -29,7 +29,13 @@ const Formulario = () => {
       </div>
       <div className="input-wrapper">
         <label htmlFor="correo">Correo</label>
-        <input type="email" name="correo" id="correo" />
+        <input
+          type="email"
+          name="correo"
+          id="correo"
+          value={correo}
+          onChange={(e) => setCorreo(e.target.value)}
+        />
       </div>
       <div className="input-wrapper">
         <label htmlFor="contraseña">Contraseña</label>
