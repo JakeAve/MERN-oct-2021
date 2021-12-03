@@ -1,0 +1,15 @@
+.quehacer {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.recortar {
+  text-decoration: line-through;
+}
+
+.quehacer label,
+.quehacer input,
+.quehacer button {
+  cursor: pointer;
+}
