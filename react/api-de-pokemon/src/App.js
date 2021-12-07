@@ -1,34 +1,19 @@
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Pokemon from "./components/Pokemon/Pokemon";
+import Buttondepokemon from "./components/ButtonDePokemon/ButtonDePokemon";
 
 function App() {
-  const [people, setPeople] = useState([]);
-  const [name, setName] = useState("");
-
-  useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon?offset=20&limit=20")
-      .then((response) => response.json())
-      .then((response) => setPeople(response.results));
-  }, []);
-
-  useEffect(() => {
-    console.log("name ha cambiado");
-    setName((nameAct) => nameAct + "foo");
-  }, []);
+  const [listaDePokemon, setListaDePokemon] = useState([]);
 
   return (
-    <div>
-      {people.length > 0 &&
-        people.map((person, index) => {
-          return <div key={index}>{person.name}</div>;
-        })}
-
-      <input
-        value={name}
-        onChange={(e) => {
-          setName(e.target.value);
-        }}
-      />
+    <div className="app">
+      <Buttondepokemon actualizarPokemon={setListaDePokemon} />
+      <ul>
+        {listaDePokemon.map((obj, i) => (
+          <Pokemon key={i} {...obj} />
+        ))}
+      </ul>
     </div>
   );
 }
