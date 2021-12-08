@@ -1,0 +1,9 @@
+main {
+  background: #e06666;
+  grid-column: 2 / 5;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing);
+  padding: var(--spacing);
+  height: 600px;
+}

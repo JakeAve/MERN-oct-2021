@@ -1,0 +1,29 @@
+:root {
+  --spacing: 24px;
+  --border-color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: rgb(58, 58, 58);
+  }
+
+  :root {
+    --border-color: rgb(154, 154, 154);
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: flex-start;
+  gap: var(--spacing);
+  padding: var(--spacing);
+  margin: var(--spacing);
+  background: grey;
+}
+
+.container,
+.container * {
+  border: 2px solid var(--border-color);
+}
