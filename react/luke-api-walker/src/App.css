@@ -1,0 +1,10 @@
+.swapi {
+  display: grid;
+  grid: 1rem;
+  padding: 64px;
+}
+
+.formulario {
+  display: flex;
+  justify-content: space-evenly;
+}
