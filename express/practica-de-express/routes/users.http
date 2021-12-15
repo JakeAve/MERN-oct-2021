@@ -1,0 +1,31 @@
+### GET api
+
+GET http://localhost:8000/api
+
+### 
+
+GET http://localhost:8000/api/users
+
+###
+
+POST http://localhost:8000/api/users
+Content-Type: application/json
+
+{ "firstName": "Mr.", "lastName": "Miyagui" }
+
+###
+
+GET http://localhost:8000/api/users/0
+
+###
+
+PUT http://localhost:8000/api/users/0
+Content-Type: application/json
+
+{ "firstName": "Mr.", "lastName": "Miyagui" }
+
+###
+
+DELETE http://localhost:8000/api/users/0
+
+###

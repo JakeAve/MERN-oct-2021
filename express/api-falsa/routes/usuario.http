@@ -1,0 +1,24 @@
+### crear usuario random
+POST http://localhost:8000/api/users
+
+###
+
+GET http://localhost:8000/api/users
+
+### crear usuario random route/endpoint 
+POST http://localhost:8000/api/users/new
+Content-Type: application/json
+
+{
+    "_carne": "26793319-0680-467c-8273-b17ef4385916",
+    "primerNombre": "Mr.",
+    "apellido": "Miyagui",
+    "tel": "(952) 522-2789 x6113",
+    "email": "Paul91@gmail.com",
+    "contraseña": "GgkEDRshUj2fS2R"
+}
+
+###
+GET http://localhost:8000/api/users/26793319-0680-467c-8273-b17ef4385916
+
+###
