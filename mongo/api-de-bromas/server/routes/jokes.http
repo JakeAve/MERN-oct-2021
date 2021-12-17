@@ -1,0 +1,32 @@
+###
+
+GET http://localhost:5100/api/jokes
+
+###
+
+POST http://localhost:5100/api/jokes/new
+Content-Type: application/json
+
+{
+    "setup": "Broma 3",
+    "punchline": "mal chiste"
+}
+
+###
+
+PATCH http://localhost:5100/api/jokes/update/61bbdd56ef458fcbd7062ab2
+Content-Type: application/json
+
+{
+    "setup": "Broma",
+    "punchline": "medio chiste 3"
+}
+
+###
+DELETE http://localhost:5100/api/jokes/delete/61bbdd56ef458fcbd7062ab2
+
+###
+
+GET http://localhost:5100/api/jokes/random
+
+###

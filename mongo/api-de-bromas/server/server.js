@@ -1,9 +1,12 @@
-const express = require('express');
+require("dotenv").config();
+const express = require("express");
+
+require("./config/connectDB")();
+
+const PORT = process.env.PORT || 5000;
 
 const app = express();
+app.use(express.json());
+app.use("/api", require("./routes/api"));
 
-// const connectToMongo = require('./config/connectToMongo')
-// connectToMongo()
-require('./config/connectToMongo')();
-
-app.listen(8000, () => `El servidor esta listo`);
+app.listen(PORT, () => console.log(`Servidor está en port: ${PORT}`));

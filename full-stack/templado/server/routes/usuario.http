@@ -1,4 +1,19 @@
 ### GET
-GET http://localhost:8000/api/usuario
+GET http://localhost:5100/api/usuario
+
+###
+
+POST http://localhost:5100/api/usuario
+Content-Type: application/json
+
+{
+    "name": "Pedro",
+    "age": 251
+
+}
+
+###
+
+GET http://localhost:5100/api/usuario/61bbcfcb7b0232f54cf773fd
 
 ###
