@@ -1,0 +1,53 @@
+:root {
+  --background: #1f1f1f;
+  --color: #ffffff;
+  --error-color: #c27400;
+}
+
+body {
+  background-color: var(--background);
+}
+
+* {
+  color: var(--color);
+}
+
+button {
+  background-color: var(--color);
+  color: var(--background);
+  border: 2px solid var(--color);
+  border-radius: 4px;
+  padding: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover,
+button:focus {
+  background-color: var(--background);
+  color: var(--color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  text-align: center;
+}
+
+main,
+h1 {
+  padding: 16px;
+  text-align: inline-start;
+}
+
+main {
+  max-width: 1000px;
+  display: grid;
+  align-content: center;
+  margin: 16px auto;
+  border: 2px solid var(--color);
+}

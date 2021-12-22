@@ -1,0 +1,19 @@
+.tabla-de-autores {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid var(--color);
+}
+
+.tabla-de-autores th,
+.tabla-de-autores td {
+  border: 1px solid var(--color);
+  padding: 8px;
+}
+
+.cedula-de-acciones {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}

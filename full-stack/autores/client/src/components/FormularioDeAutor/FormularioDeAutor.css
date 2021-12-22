@@ -1,0 +1,45 @@
+.formulario-de-autor {
+  display: grid;
+  justify-content: center;
+  gap: 16px;
+}
+
+.input-wrapper {
+  display: grid;
+  gap: 8px;
+  align-items: center;
+  width: 500px;
+}
+
+.formulario-de-autor input,
+.formulario-de-autor select {
+  font-size: 1rem;
+  padding: 8px;
+  color: var(--color);
+  background-color: var(--background);
+  border: 1px solid var(--color);
+}
+
+.formulario-de-autor .error-message {
+  background-color: var(--error-color);
+  padding: 4px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.formulario-de-autor button {
+  font-size: 1rem;
+}
+
+.formulario-de-autor button[type='reset'] {
+  color: var(--color);
+  background-color: var(--background);
+  text-decoration: underline;
+  border: none;
+}

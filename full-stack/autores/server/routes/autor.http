@@ -1,0 +1,17 @@
+###
+GET http://localhost:5100/api/autor
+
+###
+
+POST http://localhost:5100/api/autor
+Content-Type: application/json
+
+{
+    "name": "Pedro"
+}
+
+###
+
+GET http://localhost:5100/api/autor/61bbcfcb7b0232f54cf773fd
+
+###
