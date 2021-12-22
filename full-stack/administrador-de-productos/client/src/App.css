@@ -1,0 +1,18 @@
+form {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+
+  gap: 1rem;
+}
+
+h2 {
+  text-align: center;
+}
+
+.product-detalles {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  justify-items: center;
+}
