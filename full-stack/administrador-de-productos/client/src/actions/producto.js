@@ -40,4 +40,20 @@ const editarProducto = async (id, data) => {
   }
 };
 
-export { crearProducto, getTodos, getUnProducto, editarProducto };
+const eliminarProducto = async (id) => {
+  try {
+    await axios.delete(`/api/product/eliminar/${id}`);
+    return { success: true };
+  } catch (err) {
+    console.error(err);
+    return { succes: false };
+  }
+};
+
+export {
+  crearProducto,
+  getTodos,
+  getUnProducto,
+  editarProducto,
+  eliminarProducto,
+};

@@ -1,12 +1,11 @@
 import React from "react";
-import { Link } from "@reach/router";
+import { Link, useNavigate } from "@reach/router";
+import { eliminarProducto } from "../../actions/producto";
+import Eliminarboton from "../EliminarBoton/EliminarBoton";
 
 const Productdetalles = (props) => {
   const { _id, title, price, description } = props;
-  
-  const onClick = () => {
-    
-  }
+  const navigate = useNavigate();
 
   return (
     <div className="product-detalles">
@@ -14,7 +13,7 @@ const Productdetalles = (props) => {
       <p>${Number(price).toFixed(2)}</p>
       <p>{description}</p>
       <Link to={`/edit/${_id}`}>Edit</Link>
-      <button onClick={onClick}>Eliminar</button>
+      <Eliminarboton _id={_id} depuésDeEliminar={() => navigate("/")} />
     </div>
   );
 };

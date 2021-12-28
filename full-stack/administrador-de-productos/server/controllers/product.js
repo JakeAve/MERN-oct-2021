@@ -59,15 +59,16 @@ const editarProducto = async (req, res) => {
 };
 
 const eliminarProducto = async (req, res) => {
-  try{
+  try {
     const id = req.params._id;
-    await ProductModelo.deleteOneById(id);
-    res.json({ message: "Producto eliminado"});
+    const producto = await ProductModelo.findByIdAndDelete(id);
+    if (producto === null) return res.status(404).json({ msj: "No existe" });
+    res.json({ msj: "Producto eliminado" });
   } catch (err) {
-    console.error({err})
+    console.error({ err });
     res.status(500).json({ msj: "Internal server error" });
   }
-}
+};
 
 module.exports = {
   crearNuevoProducto,
