@@ -8,9 +8,14 @@ export default function New() {
   const navigate = useNavigate();
 
   const crear = async (data) => {
-    const { success } = await crearAutor(data);
-    if (success) navigate('/');
-    else window.alert('Error al crear el autor');
+    const { success, data: respuesta } = await crearAutor(data);
+    if (success) {
+      navigate('/');
+      return null;
+    } else {
+      window.alert('Error al crear el autor');
+      return respuesta;
+    }
   };
 
   return (

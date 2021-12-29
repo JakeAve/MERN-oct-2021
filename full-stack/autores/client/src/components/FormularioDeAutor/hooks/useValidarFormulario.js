@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const ErrorMessage = ({ message }) => {
+export const ErrorMessage = ({ message }) => {
   return <div className="error-message">{message}</div>;
 };
 
@@ -11,7 +11,7 @@ const useValidarFormulario = () => {
   const fields = {
     name: {
       criteria: (value) => value.trim().length >= 3,
-      message: 'El nombre debe tener más de 3 caracteres',
+      message: 'El nombre debe tener más de 3 caracteres frontend',
     },
   };
 
@@ -33,7 +33,7 @@ const useValidarFormulario = () => {
     return { esVálido };
   };
 
-  return { validar, validations, todoBien };
+  return { validar, validations, todoBien, setValidations };
 };
 
 export default useValidarFormulario;

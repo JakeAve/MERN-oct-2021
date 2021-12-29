@@ -1,6 +1,8 @@
 import './FormularioDeAutor.css';
 import React, { useState } from 'react';
-import useValidarFormulario from './hooks/useValidarFormulario';
+import useValidarFormulario, {
+  ErrorMessage,
+} from './hooks/useValidarFormulario';
 
 const getFormData = (form) => {
   const _formData = new FormData(form);
@@ -13,7 +15,7 @@ export default function FormularioDeAutor(props) {
   const { valoresDeEfecto, onSubmitCallback } = props;
   const [haIntentado, setHaIntentado] = useState(false);
 
-  const { validations, validar } = useValidarFormulario();
+  const { validations, validar, setValidations } = useValidarFormulario();
 
   const handleChange = (e, intentar = false) => {
     const data = getFormData(e.target.closest('form'));
@@ -25,8 +27,21 @@ export default function FormularioDeAutor(props) {
     e.preventDefault();
     setHaIntentado(true);
     const { data, esVálido } = handleChange(e, true);
-    if (esVálido) onSubmitCallback(data);
+    const errores = await onSubmitCallback(data);
+    if (errores) {
+      setValidations((validacionesExistentes) => {
+        for (const err in errores) {
+          console.log(err, errores[err].message);
+          validacionesExistentes[err] = (
+            <ErrorMessage message={errores[err].message} />
+          );
+          return validacionesExistentes;
+        }
+      });
+    }
   };
+
+  console.log({ validations });
 
   return (
     <form
