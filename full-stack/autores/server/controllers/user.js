@@ -1,4 +1,4 @@
-const { UserModel } = require('../models/User');
+const { UserModel, UserSchema } = require('../models/User');
 const catchRouteError = require('../utils/catchRouteError');
 const bcrypt = require('bcrypt');
 const { crearCookie } = require('../jwt/jwt');
@@ -34,4 +34,16 @@ const autenticar = async (req, res) => {
   }
 };
 
-module.exports = { crear, autenticar };
+const amigo = async (req, res) => {
+  try {
+    const { id_de_user } = req.params;
+    const user = await UserModel.findById(id_de_user);
+    user.amigos = user.amigos + 1;
+    await user.save();
+    res.json({ amigos: user.amigos });
+  } catch (err) {
+    catchRouteError(err, res);
+  }
+};
+
+module.exports = { crear, autenticar, amigo };

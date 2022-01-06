@@ -25,6 +25,10 @@ const UserSchema = new mongoose.Schema(
       minlength: [8, 'Password must be 8 characters or longer'],
     },
     scripts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Script' }],
+    amigos: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestamps: true },
 );
