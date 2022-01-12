@@ -29,7 +29,7 @@ export default function FormularioDeAutor(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setHaIntentado(true);
-    const { data, esVálido } = handleChange(e, true);
+    const { data /* esVálido */ } = handleChange(e, true);
     const errores = await onSubmitCallback(data);
     if (errores) {
       setValidations((validacionesExistentes) => {
