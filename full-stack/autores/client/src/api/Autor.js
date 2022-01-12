@@ -73,3 +73,18 @@ export const editarAutor = async (id, data) => {
     return { success: false, data: null };
   }
 };
+
+export const ganaPremio = async (id, index) => {
+  try {
+    const response = await fetch(`/api/autor/gana/${id}/${index}`, {
+      method: 'POST',
+    });
+    if (!response.ok)
+      throw new Error(`Error al actualizar, ${response.status}`);
+
+    return { success: true, data: null };
+  } catch (err) {
+    console.error(err);
+    return { success: false, data: null };
+  }
+};

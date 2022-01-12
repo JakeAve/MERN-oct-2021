@@ -4,6 +4,7 @@ import Editar from './views/Editar';
 import Nuevo from './views/Nuevo';
 import Home from './views/Home';
 import NoEncontrado from './views/NoEncontrado';
+import Detalles from './views/Detalles';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="nuevo" element={<Nuevo />} />
           <Route path="editar/:id" element={<Editar />} />
+          <Route path="detalles/:id" element={<Detalles />} />
           <Route path="no-encontrado" element={<NoEncontrado />} />
           <Route path="*" element={<NoEncontrado />} />
         </Routes>

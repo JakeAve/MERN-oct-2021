@@ -8,7 +8,9 @@ const getFormData = (form) => {
   const _formData = new FormData(form);
   const data = {};
   for (const [key, value] of _formData.entries()) data[key] = value;
-  return data;
+  const libros = _formData.getAll('libro');
+  const premios = _formData.getAll('premio');
+  return { ...data, libros, premios };
 };
 
 export default function FormularioDeAutor(props) {
@@ -20,6 +22,7 @@ export default function FormularioDeAutor(props) {
   const handleChange = (e, intentar = false) => {
     const data = getFormData(e.target.closest('form'));
     const { esVálido } = validar(data, haIntentado || intentar);
+    console.log({ data });
     return { data, esVálido };
   };
 
@@ -41,8 +44,6 @@ export default function FormularioDeAutor(props) {
     }
   };
 
-  console.log({ validations });
-
   return (
     <form
       className="formulario-de-autor"
@@ -58,6 +59,22 @@ export default function FormularioDeAutor(props) {
           defaultValue={valoresDeEfecto?.name || ''}
         />
         {validations.name}
+      </div>
+      <div className="input-wrapper">
+        <label htmlFor="libro-1">Libro 1</label>
+        <input type="text" name="libro" id="libro-1" defaultValue={''} />
+      </div>
+      <div className="input-wrapper">
+        <label htmlFor="libro-1">Libro 2</label>
+        <input type="text" name="libro" id="libro-2" defaultValue={''} />
+      </div>
+      <div className="input-wrapper">
+        <label htmlFor="premio-1">Premio 1</label>
+        <input type="text" name="premio" id="premio-1" defaultValue={''} />
+      </div>
+      <div className="input-wrapper">
+        <label htmlFor="premio-2">Premio 2</label>
+        <input type="text" name="premio" id="premio-2" defaultValue={''} />
       </div>
       <div className="buttons">
         <button type="reset">Cancelar</button>

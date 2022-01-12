@@ -6,7 +6,9 @@ import { eliminarAutor, obtenerAutores } from '../../api/Autor';
 const Fila = ({ name, _id, eliminar }) => {
   return (
     <tr>
-      <td>{name}</td>
+      <td>
+        <Link to={`/detalles/${_id}`}>{name}</Link>
+      </td>
       <td className="cedula-de-acciones">
         <Link to={`/editar/${_id}`}>editar</Link>
         <button onClick={() => eliminar(_id, name)}>eliminar</button>

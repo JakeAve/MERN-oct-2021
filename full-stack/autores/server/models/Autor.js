@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { PremioSchema } = require('./Premio');
 
 const AutorSchema = new mongoose.Schema(
   {
@@ -6,6 +7,8 @@ const AutorSchema = new mongoose.Schema(
       type: String,
       minlength: [3, 'El nombre necesita más de 3 caracteres'],
     },
+    libros: [{ type: mongoose.Schema.Types.ObjectId, ref: 'libro' }],
+    premios: [PremioSchema],
   },
   { timestamps: true },
 );
