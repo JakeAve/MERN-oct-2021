@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 
 require('./config/connectDB')();
 
-const PORT = process.env.PORT || 5500;
+const PORT = process.env.PORT || 5100;
 
 const app = express();
 app.use(express.json());
