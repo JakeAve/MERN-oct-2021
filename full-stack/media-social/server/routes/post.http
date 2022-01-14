@@ -1,0 +1,12 @@
+### 
+POST http://localhost:5100/api/post/61e0c238dc5da231f202457d
+Content-Type: application/json
+
+{
+    "content": "informacion"
+}
+
+
+###
+
+GET http://localhost:5100/api/post/promedio/61e0c238dc5da231f202457d
