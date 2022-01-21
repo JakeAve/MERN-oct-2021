@@ -1,19 +1,28 @@
-### GET
-GET http://localhost:5100/api/usuario
-
 ###
 
 POST http://localhost:5100/api/usuario
 Content-Type: application/json
 
 {
-    "name": "Pedro",
-    "age": 251
+   "usuario": "mrmiyagui",
+   "nombres": "Mister",
+   "apellidos": "Miyagui",
+   "correo": "mrm@gmail.com",
+   "password": "12345678",
+   "confirmPassword": "12345678"
 
 }
 
 ###
 
-GET http://localhost:5100/api/usuario/61bbcfcb7b0232f54cf773fd
+POST http://localhost:5100/api/usuario/login
+Content-Type: application/json
+
+{
+   "correo": "pedro@gmail.com",
+   "password": "12345678"
+}
 
 ###
+
+GET http://localhost:5100/api/usuario

@@ -1,3 +1,4 @@
+import "./styles.css";
 import React from "react";
 import { useUsuario } from "../../contexts/usuarioContext";
 
@@ -10,15 +11,19 @@ const Mensaje = (props) => {
   } = props;
   const { usuario } = useUsuario();
   const esPropio = usuario === usuarioQueEnvioElChat;
-  const esSistema = tipo;
+  const esSistema = Boolean(tipo);
 
   let mensaje = mensajeQueEnvioElChat;
-  if (tipo === "nuevo_usuario" && esPropio) mensaje = "Tú entraste el chat";
   if (tipo === "nuevo_usuario")
     mensaje = mensajeQueEnvioElChat.replace(/{u}/, usuarioQueEnvioElChat);
+  if (tipo === "nuevo_usuario" && esPropio) mensaje = "Tú entraste el chat";
 
   return (
-    <div className={esSistema ? "sistema" : ""}>
+    <div
+      className={`mensaje ${esPropio ? "propio" : ""} ${
+        esSistema ? "sistema" : ""
+      }`}
+    >
       <p>{mensaje}</p>
       <div>
         <div>{esPropio ? "Tú" : usuarioQueEnvioElChat}</div>

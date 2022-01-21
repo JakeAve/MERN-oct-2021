@@ -8,9 +8,9 @@ import { UsuarioProvider } from "./contexts/usuarioContext";
 function App() {
   return (
     <>
-      <UsuarioProvider>
-        <SocketProvider>
-          <BrowserRouter>
+      <BrowserRouter>
+        <UsuarioProvider>
+          <SocketProvider>
             <nav>
               <Link to="/">Home</Link>
             </nav>
@@ -18,9 +18,9 @@ function App() {
               <Route path="/" element={<Login />} />
               <Route path="chat" element={<Chatview />} />
             </Routes>
-          </BrowserRouter>
-        </SocketProvider>
-      </UsuarioProvider>
+          </SocketProvider>
+        </UsuarioProvider>
+      </BrowserRouter>
     </>
   );
 }

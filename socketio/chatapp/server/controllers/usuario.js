@@ -1,12 +1,15 @@
-const { User } = require("../models/Usuario");
+const { UsuarioModelo } = require("../models/Usuario");
+const bcrypt = require("bcrypt");
+const { crearJWT } = require("../jwt");
 
 const crearUsuario = async (req, res) => {
   try {
-    const { name, age } = req.body;
-    const user = new User({ name, age });
+    const user = new UsuarioModelo(req.body);
     await user.save();
-    res.json(user);
+    crearJWT(res, user);
+    res.json({ usuario: user.usuario });
   } catch (err) {
+    console.log(err);
     if (err.errors) {
       const messages = Object.entries(err.errors).map(([campo, obj]) => [
         campo,
@@ -20,7 +23,7 @@ const crearUsuario = async (req, res) => {
 
 const leerUsuarios = async (req, res) => {
   try {
-    const users = await User.find();
+    const users = await UsuarioModelo.find();
     res.json(users);
   } catch (err) {
     res.status(500).json({ msj: "Internal Server Error" });
@@ -30,7 +33,7 @@ const leerUsuarios = async (req, res) => {
 const usuarioPorId = async (req, res) => {
   try {
     const id = req.params.id;
-    const user = await User.findById(id);
+    const user = await UsuarioModelo.findById(id);
 
     if (!user) return res.status(404).json({ msj: "Not Found" });
 
@@ -40,4 +43,38 @@ const usuarioPorId = async (req, res) => {
   }
 };
 
-module.exports = { crearUsuario, leerUsuarios, usuarioPorId };
+const loginUsuario = async (req, res) => {
+  try {
+    const { correo, password } = req.body;
+    const user = await UsuarioModelo.findOne({ correo });
+    if (!user) return res.status(400).json({ msj: "No se pudo entrar" });
+
+    const authenticated = bcrypt.compareSync(password, user.password);
+    if (!authenticated)
+      return res.status(400).json({ msj: "No se pudo entrar" });
+
+    crearJWT(res, user);
+    res.json({ usuario: user.usuario });
+  } catch (err) {
+    res.status(500).json({ msj: "Internal Server Error" });
+  }
+};
+
+const getUsuario = async (req, res) => {
+  try {
+    const user = await UsuarioModelo.findOne({ usuario: req.usuario });
+    if (!user) return res.status(401).json({ msj: "No se pudo entrar" });
+
+    res.json({ usuario: user.usuario });
+  } catch (err) {
+    res.status(500).json({ msj: "Internal Server Error" });
+  }
+};
+
+module.exports = {
+  crearUsuario,
+  leerUsuarios,
+  usuarioPorId,
+  loginUsuario,
+  getUsuario,
+};

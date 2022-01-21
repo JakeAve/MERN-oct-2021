@@ -11,7 +11,7 @@ export const SocketProvider = ({ children }) => {
   useEffect(() => {
     socket.emit("test");
 
-    socket.on("disconect", socket.open());
+    socket.on("disconect", () => socket.open());
 
     return () => socket.disconnect(true);
   }, [socket]);

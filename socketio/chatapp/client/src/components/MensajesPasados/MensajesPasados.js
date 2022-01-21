@@ -1,3 +1,4 @@
+import "./styles.css";
 import React, { useEffect } from "react";
 import { useSocket } from "../../contexts/socketContext";
 import Mensaje from "../Mensaje/Mensaje";
@@ -13,7 +14,7 @@ const Mensajespasados = (props) => {
   });
 
   return (
-    <div>
+    <div className="mensajes-pasados">
       {mensajes.map((m, i) => (
         <Mensaje key={i} {...m} />
       ))}

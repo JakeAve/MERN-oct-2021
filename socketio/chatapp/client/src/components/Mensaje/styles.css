@@ -1,0 +1,20 @@
+.mensaje {
+  background: dodgerblue;
+  color: white;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 0 16px 16px 16px;
+}
+
+.propio {
+  background: rgb(22, 107, 193);
+  justify-self: flex-end;
+  border-radius: 16px 16px 0;
+}
+
+.sistema {
+  background: transparent;
+  justify-self: center;
+  color: grey;
+  font-size: 0.8rem;
+}
