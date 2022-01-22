@@ -1,3 +1,4 @@
+import "./styles.css";
 import React, { useCallback, useEffect, useState } from "react";
 import { useSocket } from "../../contexts/socketContext";
 import { useUsuario } from "../../contexts/usuarioContext";
@@ -36,7 +37,7 @@ const Chat = () => {
   }, [usuario, nuevoMensaje]);
 
   return (
-    <div>
+    <div className="chat-container">
       <Mensajespasados mensajes={mensajes} />
       <Chatformulario nuevoPropioMensaje={nuevoMensaje} />
     </div>

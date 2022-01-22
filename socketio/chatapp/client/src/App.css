@@ -2,5 +2,23 @@
   --color-1: #313131;
   --color-2: #f2f2f2;
   --color-3: #aa5454;
-  --color-4:  #964b4b;
+  --color-4: #964b4b;
+  --border-radius: 16px;
+  --serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+body {
+  background-color: var(--color-2);
+}
+
+input:focus,
+button:focus,
+textarea:focus {
+  outline-color: var(--color-3);
+}
+
+* {
+  color: var(--color-1);
 }

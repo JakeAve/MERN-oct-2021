@@ -1,0 +1,46 @@
+.chat-formulario {
+  display: grid;
+  background: var(--color-1);
+  padding: 0.5rem;
+}
+
+.chat-formulario textarea {
+  /* defined in js
+  --textarea-height: 1rem;
+  --textarea-padding: 0.5rem; 
+  */
+  resize: none;
+  height: var(--textarea-height);
+  overflow: hidden;
+  padding: var(--textarea-padding);
+  background-color: var(--color-2);
+  border-radius: calc(var(--border-radius) / 2);
+  font-family: var(--serif);
+  font-size: 1rem;
+}
+
+.text-area-container {
+  display: grid;
+  grid-template-columns: auto minmax(auto, 6rem);
+  grid-gap: 0.5rem;
+  align-items: flex-end;
+}
+
+.enviar-btn {
+  background-color: var(--color-3);
+  color: var(--color-2);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 2px solid var(--color-3);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: bold;
+  text-align: center;
+}
+
+.enviar-btn:hover,
+.enviar-btn:focus {
+  background-color: var(--color-2);
+  color: var(--color-3);
+}

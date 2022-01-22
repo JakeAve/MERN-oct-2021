@@ -1,0 +1,7 @@
+.chat-container {
+  display: grid;
+  --min-form-height: 5rem;
+  grid-template-rows: 1fr minmax(var(--min-form-height), auto);
+  height: 90vh;
+  border-top: 2px solid var(--color-1);
+}
