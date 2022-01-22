@@ -17,6 +17,8 @@ const Mensaje = (props) => {
   if (tipo === "nuevo_usuario")
     mensaje = mensajeQueEnvioElChat.replace(/{u}/, usuarioQueEnvioElChat);
   if (tipo === "nuevo_usuario" && esPropio) mensaje = "Tú entraste el chat";
+  if (tipo === "disconnect_usuario")
+    mensaje = mensajeQueEnvioElChat.replace(/{u}/, usuarioQueEnvioElChat);
 
   return (
     <div

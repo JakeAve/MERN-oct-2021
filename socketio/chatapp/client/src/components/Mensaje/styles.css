@@ -1,13 +1,13 @@
 .mensaje {
-  background: dodgerblue;
-  color: white;
+  background: var(--color-3);
+  color: var(--color-2);
   padding: 1rem;
   font-size: 1rem;
   border-radius: 0 16px 16px 16px;
 }
 
 .propio {
-  background: rgb(22, 107, 193);
+  background: var(--color-4);
   justify-self: flex-end;
   border-radius: 16px 16px 0;
 }
@@ -15,6 +15,6 @@
 .sistema {
   background: transparent;
   justify-self: center;
-  color: grey;
+  color: var(--color-1);
   font-size: 0.8rem;
 }

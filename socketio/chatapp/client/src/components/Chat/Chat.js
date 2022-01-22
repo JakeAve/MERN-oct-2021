@@ -1,34 +1,43 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useSocket } from "../../contexts/socketContext";
 import { useUsuario } from "../../contexts/usuarioContext";
 import Chatformulario from "../ChatFormulario/ChatFormulario";
 import Mensajespasados from "../MensajesPasados/MensajesPasados";
 
 const Chat = () => {
-  const { usuario } = useUsuario();
   const socket = useSocket();
   const [mensajes, setMensajes] = useState([]);
+  const { usuario } = useUsuario();
 
-  const nuevoMensaje = (m) => {
-    setMensajes((curr) => [...curr, m]);
-  };
+  const nuevoMensaje = useCallback(
+    (m) => setMensajes((curr) => [...curr, m]),
+    []
+  );
 
   useEffect(() => {
-    nuevoMensaje({
-      usuario,
-      tipo: "nuevo_usuario",
-      hora: new Date(),
-      mensaje: "Tú entraste el chat",
-    });
     socket.on("mensajes-pasados", (msjs) => {
-      console.log({ msjs });
-      setMensajes(msjs);
+      setMensajes((curr) => [...msjs, ...curr]);
     });
-  }, [usuario, socket]);
+
+    socket.on("msj-a-clientes", (m) => {
+      nuevoMensaje(m);
+    });
+  }, [socket, nuevoMensaje]);
+
+  useEffect(() => {
+    if (usuario) {
+      nuevoMensaje({
+        mensaje: "{u} ha entrado el chat",
+        usuario,
+        hora: new Date(),
+        tipo: "nuevo_usuario",
+      });
+    }
+  }, [usuario, nuevoMensaje]);
 
   return (
     <div>
-      <Mensajespasados mensajes={mensajes} nuevoMensaje={nuevoMensaje} />
+      <Mensajespasados mensajes={mensajes} />
       <Chatformulario nuevoPropioMensaje={nuevoMensaje} />
     </div>
   );
