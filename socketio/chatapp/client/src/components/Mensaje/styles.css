@@ -31,6 +31,7 @@
   font-size: 1rem;
   border-radius: 0 var(--border-radius) var(--border-radius)
     var(--border-radius);
+  box-shadow: var(--box-shadow-1);
 }
 
 .propio {
@@ -41,6 +42,7 @@
 .propio .mensaje-contenido {
   background: var(--color-4);
   border-radius: var(--border-radius) var(--border-radius) 0;
+  box-shadow: var(--box-shadow-2);
 }
 
 .mensaje-nombre,
@@ -64,6 +66,7 @@
   color: var(--color-1);
   font-size: 0.8rem;
   padding: 0;
+  box-shadow: none;
 }
 
 .sistema .mensaje-nombre {
