@@ -4,7 +4,7 @@ const jwtCookieKey = "user_token";
 
 const crearJWT = (res, user) => {
   const payload = { usuario: user.usuario };
-  const token = jwt.sign(payload, JWT_SECRET);
+  const token = jwt.sign(payload, JWT_SECRET, { expiresIn: 3600 });
   res.cookie(jwtCookieKey, token, { httpOnly: true });
 };
 
@@ -18,4 +18,4 @@ const autorizarJWT = async (req, res, next) => {
   }
 };
 
-module.exports = { crearJWT, autorizarJWT };
+module.exports = { crearJWT, autorizarJWT, jwtCookieKey };

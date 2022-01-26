@@ -6,6 +6,16 @@ const socketChat = (socket) => {
 
   socket.on("test", () => console.log(`testing ${socket.id}`));
 
+  socket.use(([event, ...args], next) => {
+    // if (isUnauthorized(event)) {
+    //   return next(new Error("unauthorized event"));
+    // }
+    // do not forget to call next
+    const headers = socket.handshake.headers.cookies;
+    console.log({ headers });
+    next();
+  });
+
   socket.on("nuevo_usuario", async (d) => {
     try {
       console.log(`El usuario es ${d.usuario}`);
@@ -37,6 +47,12 @@ const socketChat = (socket) => {
     } catch (err) {
       console.error(err);
       socket.emit("error");
+    }
+  });
+
+  socket.on("error", (err) => {
+    if (err && err.message === "unauthorized event") {
+      socket.disconnect();
     }
   });
 };

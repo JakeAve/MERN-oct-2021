@@ -38,6 +38,18 @@ export const UsuarioProvider = ({ children }) => {
     });
   }, [navigate, setUsuario]);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      getUsuario().then(({ success }) => {
+        if (!success) {
+          navigate("/");
+        }
+      });
+    }, 1000 * 60 * 55);
+
+    return () => clearInterval(interval);
+  }, [setUsuario, navigate]);
+
   return (
     <usuarioContext.Provider value={{ usuario, setUsuario }}>
       {children}

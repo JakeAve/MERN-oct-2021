@@ -34,3 +34,17 @@ export const getUsuario = async () => {
     return { success: false, data: null };
   }
 };
+
+export const logout = async () => {
+  try {
+    const respuesta = await fetch("/api/usuario/login", {
+      method: "POST",
+    });
+    if (!respuesta.ok) throw new Error(`No se pudo entra ${respuesta.status}`);
+    const json = await respuesta.json();
+    return { success: true, data: json };
+  } catch (err) {
+    console.error(err);
+    return { success: false, data: null };
+  }
+};

@@ -1,6 +1,6 @@
 const { UsuarioModelo } = require("../models/Usuario");
 const bcrypt = require("bcrypt");
-const { crearJWT } = require("../jwt");
+const { crearJWT, jwtCookieKey } = require("../jwt");
 
 const crearUsuario = async (req, res) => {
   try {
@@ -60,11 +60,20 @@ const loginUsuario = async (req, res) => {
   }
 };
 
+const logoutUsuario = async (req, res) => {
+  try {
+    res.clearCookie(jwtCookieKey);
+    res.json({ msj: "Ok" });
+  } catch (err) {
+    res.status(500).json({ msj: "Internal Server Error" });
+  }
+};
+
 const getUsuario = async (req, res) => {
   try {
     const user = await UsuarioModelo.findOne({ usuario: req.usuario });
     if (!user) return res.status(401).json({ msj: "No se pudo entrar" });
-
+    crearJWT(res, user);
     res.json({ usuario: user.usuario });
   } catch (err) {
     res.status(500).json({ msj: "Internal Server Error" });
@@ -77,4 +86,5 @@ module.exports = {
   usuarioPorId,
   loginUsuario,
   getUsuario,
+  logoutUsuario,
 };
