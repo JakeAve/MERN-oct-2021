@@ -37,7 +37,7 @@ export const getUsuario = async () => {
 
 export const logout = async () => {
   try {
-    const respuesta = await fetch("/api/usuario/login", {
+    const respuesta = await fetch("/api/usuario/logout", {
       method: "POST",
     });
     if (!respuesta.ok) throw new Error(`No se pudo entra ${respuesta.status}`);
