@@ -1,3 +1,4 @@
+import "./styles.css";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../api/usuario";
@@ -25,17 +26,27 @@ const FormularioLogin = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <label htmlFor="correo">Correo</label>
+    <form className="formulario-login" onSubmit={onSubmit}>
+      <label htmlFor="correo" className="login-label">
+        Correo
+      </label>
       <input
         id="correo"
         defaultValue={usuario || ""}
         name="correo"
         type="email"
+        className="login-input"
       />
-      <label htmlFor="password">Contraseña</label>
-      <input id="password" type="password" name="password" />
-      <button>Comenzar</button>
+      <label htmlFor="password" className="login-label">
+        Contraseña
+      </label>
+      <input
+        id="password"
+        type="password"
+        name="password"
+        className="login-input"
+      />
+      <button className="btn login-btn">Comenzar</button>
     </form>
   );
 };

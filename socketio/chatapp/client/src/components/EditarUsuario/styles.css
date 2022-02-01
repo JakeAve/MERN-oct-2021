@@ -1,0 +1,36 @@
+.editar-btn-container {
+  position: relative;
+}
+
+.editar-lista {
+  position: absolute;
+  top: calc(var(--top-bar-height) * 0.75);
+  right: 0;
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-flow: column nowrap;
+  box-shadow: var(--box-shadow-1);
+}
+
+.editar-lista[data-abierto="true"] {
+  display: flex;
+}
+
+.editar-lista-item {
+  padding: 1rem;
+  cursor: pointer;
+  width: 10rem;
+  text-align: center;
+  border: 0;
+  font-size: 1rem;
+  background-color: var(--color-5);
+  transition: 0.1s ease;
+}
+
+.editar-lista-item:hover,
+.editar-lista-item:focus {
+  background-color: var(--color-2);
+  color: var(--color-3);
+}

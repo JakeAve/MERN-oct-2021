@@ -13,7 +13,9 @@ export const SocketProvider = ({ children }) => {
 
     socket.on("disconect", () => socket.open());
 
-    socket.on("error", () => window.alert("Error de conexión"));
+    socket.on("error", (e) => {
+      if (e) window.alert("Error de conexión");
+    });
 
     return () => socket.disconnect(true);
   }, [socket]);

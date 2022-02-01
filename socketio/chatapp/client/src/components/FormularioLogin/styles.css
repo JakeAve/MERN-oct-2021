@@ -1,0 +1,29 @@
+.formulario-login {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 0.5rem;
+  background-color: var(--color-5);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-1);
+}
+
+.login-label,
+.login-input {
+  width: 100%;
+}
+
+.login-input {
+  font-size: 1rem;
+  border: 1px solid var(--color-3);
+  background: var(--color-2);
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.login-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+}

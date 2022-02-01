@@ -11,7 +11,7 @@ export const login = async (payload) => {
     const json = await respuesta.json();
     return { success: true, data: json };
   } catch (err) {
-    console.error(err);
+    // console.error(err);
     return { success: false, data: null };
   }
 };

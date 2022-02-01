@@ -1,7 +1,8 @@
 .chat-formulario {
   display: grid;
   background: var(--color-1);
-  padding: 0.5rem;
+  padding: 1rem;
+  box-shadow: var(--box-shadow-3);
 }
 
 .chat-formulario textarea {
@@ -27,20 +28,5 @@
 }
 
 .enviar-btn {
-  background-color: var(--color-3);
-  color: var(--color-2);
   padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border: 2px solid var(--color-3);
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  transition: 0.2s;
-  font-weight: bold;
-  text-align: center;
-}
-
-.enviar-btn:hover,
-.enviar-btn:focus {
-  background-color: var(--color-2);
-  color: var(--color-3);
 }

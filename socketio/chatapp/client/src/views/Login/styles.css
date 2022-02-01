@@ -1,0 +1,17 @@
+.formulario-wrap-div {
+  height: 100%;
+  display: grid;
+  place-content: center;
+  grid-template-columns: minmax(auto, 500px);
+  gap: 1rem;
+}
+
+.cuenta-titulo {
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+}
+
+.cuenta-titulo,
+.cuenta-blurb {
+  text-align: center;
+}

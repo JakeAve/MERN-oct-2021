@@ -1,31 +1,27 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Login from "./views/Login";
-import Chatview from "./views/Chatview";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Login from "./views/Login/Login";
+import Chatview from "./views/Chatview/Chatview";
 import { SocketProvider } from "./contexts/socketContext";
 import { UsuarioProvider } from "./contexts/usuarioContext";
-import { logout } from "./api/usuario";
+import { Signup } from "./views/Signup/Signup";
+import { Titulo } from "./components/Titulo/Titulo";
 
 function App() {
-  const _logout = async () => {
-    const { success } = await logout();
-    if (success) document.location.href = "/";
-    else window.alert("Error");
-  };
-
   return (
     <>
       <BrowserRouter>
         <UsuarioProvider>
           <SocketProvider>
-            <nav>
-              <Link to="/">Home</Link>
-              <button onClick={_logout}>Logout</button>
-            </nav>
-            <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="chat" element={<Chatview />} />
-            </Routes>
+            <Titulo />
+            <main className="main">
+              <Routes>
+                <Route path="login" element={<Login />} />
+                <Route path="signup" element={<Signup />} />
+                <Route path="chat" element={<Chatview />} />
+                <Route path="*" element={<Navigate to="/login" />} />
+              </Routes>
+            </main>
           </SocketProvider>
         </UsuarioProvider>
       </BrowserRouter>
