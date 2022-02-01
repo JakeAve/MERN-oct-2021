@@ -56,7 +56,7 @@ const Chatformulario = (props) => {
             "--textarea-padding": textareaSizes.padding,
           }}
         ></textarea>
-        <button className="enviar-btn">Enviar</button>
+        <button className="btn enviar-btn">Enviar</button>
       </div>
     </form>
   );
