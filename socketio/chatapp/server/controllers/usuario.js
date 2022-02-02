@@ -71,7 +71,9 @@ const logoutUsuario = async (req, res) => {
 
 const getUsuario = async (req, res) => {
   try {
-    const user = await UsuarioModelo.findOne({ usuario: req.usuario });
+    const user = await UsuarioModelo.findOne({ usuario: req.usuario }).select(
+      "usuario correo"
+    );
     if (!user) return res.status(401).json({ msj: "No se pudo entrar" });
     crearJWT(res, user);
     res.json({ usuario: user.usuario });
