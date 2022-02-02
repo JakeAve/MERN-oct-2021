@@ -18,6 +18,6 @@ const factorial2 = (n, memo = {}) => {
 };
 
 console.time("factorial2");
-const _112 = factorial2(11);
+const _11B = factorial2(11);
 console.timeEnd("factorial2");
-console.table({ _112 });
+console.table({ _11B });
