@@ -5,4 +5,5 @@ const modeloDeMerge = {
   },
   libros: [{ type: "mongoose.Schema.Types.ObjectId", ref: "libro" }],
   premios: ["PremioSchema"],
+  fechaDeNac: Date,
 };
