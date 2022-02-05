@@ -4,4 +4,5 @@
   justify-items: flex-start;
   padding: 1rem 2rem;
   overflow-y: auto;
+  grid-area: mensajes;
 }

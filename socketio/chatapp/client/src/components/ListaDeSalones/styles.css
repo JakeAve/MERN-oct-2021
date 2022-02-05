@@ -1,0 +1,31 @@
+.lista-de-salones-container {
+  grid-area: lista;
+  padding: 0.5rem;
+  border-right: 1px solid var(--color-5);
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.lista-de-salones {
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.salon-item {
+  border-bottom: 1px solid var(--color-5);
+}
+
+.salon-item.seleccionado {
+  background-color: var(--color-1);
+}
+
+.salon-item.seleccionado a {
+  color: var(--color-5);
+}
+
+.salon-item a {
+  display: block;
+  padding: 1rem 0.5rem;
+}

@@ -30,6 +30,9 @@ const UsuarioSchema = new mongoose.Schema(
       required: [true, "Contraseña es requerida"],
       minlength: [8, "La contraseña necesita más de 8 caracteres"],
     },
+    contactos: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "usuario", default: [] },
+    ],
   },
   { timestamps: true }
 );

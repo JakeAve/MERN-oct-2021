@@ -18,7 +18,9 @@ function App() {
               <Routes>
                 <Route path="login" element={<Login />} />
                 <Route path="signup" element={<Signup />} />
-                <Route path="chat" element={<Chatview />} />
+                <Route path="chat" element={<Chatview />}>
+                  <Route path=":salonId" element={<Chatview />} />
+                </Route>
                 <Route path="*" element={<Navigate to="/login" />} />
               </Routes>
             </main>

@@ -1,12 +1,9 @@
+import "./styles.css";
 import React from "react";
 import Chat from "../../components/Chat/Chat";
 
 const Chatview = () => {
-  return (
-    <>
-      <Chat />
-    </>
-  );
+  return <Chat />;
 };
 
 export default Chatview;

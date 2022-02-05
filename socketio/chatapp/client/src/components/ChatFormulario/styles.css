@@ -3,6 +3,7 @@
   background: var(--color-1);
   padding: 1rem;
   box-shadow: var(--box-shadow-3);
+  grid-area: formulario;
 }
 
 .chat-formulario textarea {

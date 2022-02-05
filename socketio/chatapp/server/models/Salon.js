@@ -11,9 +11,15 @@ const SalonSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
-    participantes: [{ type: mongoose.Schema.Types.ObjectId, ref: "usuario" }],
-    admins: [{ type: mongoose.Schema.Types.ObjectId, ref: "usuario" }],
-    mensajes: [{ type: mongoose.Schema.Types.ObjectId, ref: "mensaje" }],
+    participantes: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "usuario", default: [] },
+    ],
+    admins: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "usuario", default: [] },
+    ],
+    mensajes: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "mensaje", default: [] },
+    ],
   },
   { timestamps: true }
 );

@@ -2,5 +2,9 @@
   display: grid;
   --min-form-height: 5rem;
   grid-template-rows: 1fr minmax(var(--min-form-height), auto);
+  grid-template-columns: 1fr 4fr;
+  grid-template-areas:
+    "lista mensajes"
+    "lista formulario";
   height: 100%;
 }
