@@ -1,0 +1,11 @@
+POST http://localhost:5100/api/salon
+Content-Type: application/json
+
+{
+   "nombre": "Salon de la familia",
+    "direccion": "Chat"
+}
+
+###
+
+GET http://localhost:5100/api/salon/6201c8e831b28983c15d2258

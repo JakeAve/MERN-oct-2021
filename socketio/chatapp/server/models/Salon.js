@@ -24,6 +24,6 @@ const SalonSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const SalonModelo = mongoose.model("mensaje", SalonSchema);
+const SalonModelo = mongoose.model("salon", SalonSchema);
 
 module.exports = { SalonSchema, SalonModelo };
