@@ -17,6 +17,22 @@ const factorial2 = (n, memo = {}) => {
   return memo[n];
 };
 
+/* memo es un objecto que tiene resultados previos
+{
+  '1': 1,
+  '2': 2,
+  '3': 6,
+  '4': 24,
+  '5': 120,
+  '6': 720,
+  '7': 5040,
+  '8': 40320,
+  '9': 362880,
+  '10': 3628800,
+  '11': 39916800
+}
+*/
+
 console.time("factorial2");
 const _11B = factorial2(11);
 console.timeEnd("factorial2");

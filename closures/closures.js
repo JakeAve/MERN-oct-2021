@@ -43,15 +43,15 @@ function colores(colorString) {
 
 const consoleExito = colores(`\u001b[32;1m`);
 
-// consoleExito("Èxito!!");
+consoleExito("Èxito!!");
 
 const consoleError = colores(`\u001b[31;1m`);
 
-// consoleError("Error!!");
+consoleError("Error!!");
 
 const consoleWarn = colores(`\u001b[33;1m`);
 
-// consoleWarn("Warn");
+consoleWarn("Warn");
 
 // Black: \u001b[30m
 // Red: \u001b[31m
