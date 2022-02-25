@@ -1,10 +1,9 @@
 class Ninja {
-  salud = 10;
-  velocidad = 3;
-  fuerza = 3;
-
-  constructor(nombre) {
+  constructor(nombre, salud = 10, velocidad = 3, fuerza = 3) {
     this.nombre = nombre;
+    this.salud = salud;
+    this.velocidad = velocidad;
+    this.fuerza = fuerza;
   }
 
   drinkSake() {
@@ -28,18 +27,12 @@ class Ninja {
   }
 }
 
-// const ninja1 = new Ninja("Daniel");
-// const ninja2 = new Ninja("Daniel's Son");
+// const pedro = new Ninja("Pedro");
+// const maria = new Ninja("Maria");
 
-// ninja1.drinkSake();
-// ninja1.drinkSake();
+// maria.drinkSake();
+// console.table({ pedro, maria });
+// pedro.sayName();
 
-// ninja1.sayName();
-// ninja2.sayName();
-
-// ninja1.showStats();
-// ninja2.showStats();
-
-// console.log({ ninja1, ninja2 });
-
+// pedro.showStats();
 module.exports = Ninja;

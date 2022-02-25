@@ -23,15 +23,18 @@ class Carro {
 }
 
 const carro1 = new Carro("Toyota", "Camry", 2015, "rojo");
+// const carro2 = new Carro("Toyota", "Camry", 2015, "blue");
+// const carro3 = new Carro("Toyota", "Camry", 2015, "green");
+// const carro4 = new Carro("Toyota", "Camry", 2015, "yellow");
 carro1.manejar(100);
 
-carro1.pitar();
-
-console.log(carro1);
+// carro1.pitar();
 
 class M5 extends Carro {
   constructor(año, color) {
     super("BMW", "M5", año, color);
+
+    this.dineroEnElAsiento = 200000;
   }
 
   volar(millas = 1) {

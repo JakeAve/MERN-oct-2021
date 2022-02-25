@@ -1,16 +1,12 @@
-const Ninja = require("./Ninja");
+const Ninja = require("./Ninja.js");
 
 class Sensei extends Ninja {
   constructor(nombre) {
-    super(nombre);
-    this.salud = 200;
-    this.velocidad = 10;
-    this.fuerza = 10;
-    this.sabiduria = 10;
+    super(nombre, 200, 10, 10);
   }
 
   speakWisdom() {
-    //   this.drinkSake() va a hacer lo mismo porque no hemos redefenido drinkSake en Sensei
+    // this.drinkSake();
     super.drinkSake();
     console.log(
       "Es mejor permanecer en silencio y que piensen que eres un tonto, que hablar y despejar toda duda."
@@ -21,6 +17,5 @@ class Sensei extends Ninja {
 const mrMiyagui = new Sensei("Mr. Miyagui");
 
 mrMiyagui.speakWisdom();
-mrMiyagui.showStats();
 
-console.table({ mrMiyagui });
+mrMiyagui.showStats();
